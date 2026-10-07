@@ -129,6 +129,7 @@
 		A10900000000000000000002 /* SessionNavigationStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10900000000000000000012 /* SessionNavigationStateTests.swift */; };
 		E1046000000000000000A005 /* HermesSessionListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1046000000000000000A006 /* HermesSessionListTests.swift */; };
 		E1048000000000000000A003 /* HermesSessionActionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1048000000000000000A004 /* HermesSessionActionsTests.swift */; };
+		E1052000000000000000A003 /* HermesProjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1052000000000000000A004 /* HermesProjectsTests.swift */; };
 		19C1150000000000000000A3 /* CliSessionsSyncModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1150000000000000000A4 /* CliSessionsSyncModelTests.swift */; };
 		C03910000000000000000010 /* APIEndpointContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03900000000000000000010 /* APIEndpointContractTests.swift */; };
 		C03910000000000000000011 /* CronManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03900000000000000000011 /* CronManagementTests.swift */; };
@@ -540,6 +541,7 @@
 		E1043000000000000000A001 /* HermesKanbanClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1043000000000000000A002 /* HermesKanbanClient.swift */; };
 		E1046000000000000000A001 /* HermesSessionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1046000000000000000A002 /* HermesSessionPage.swift */; };
 		E1048000000000000000A001 /* HermesSessionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1048000000000000000A002 /* HermesSessionActions.swift */; };
+		E1052000000000000000A001 /* HermesProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1052000000000000000A002 /* HermesProjects.swift */; };
 		C8240A000000000000000001 /* HermesConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8240A000000000000000002 /* HermesConnection.swift */; };
 		C8250A000000000000000001 /* HermesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8250A000000000000000002 /* HermesGateway.swift */; };
 		C8970A000000000000000001 /* HermesCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8970A000000000000000002 /* HermesCompatibility.swift */; };
@@ -773,6 +775,7 @@
 		A10900000000000000000012 /* SessionNavigationStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionNavigationStateTests.swift; sourceTree = "<group>"; };
 		E1046000000000000000A006 /* HermesSessionListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesSessionListTests.swift; sourceTree = "<group>"; };
 		E1048000000000000000A004 /* HermesSessionActionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesSessionActionsTests.swift; sourceTree = "<group>"; };
+		E1052000000000000000A004 /* HermesProjectsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesProjectsTests.swift; sourceTree = "<group>"; };
 		19C1150000000000000000A4 /* CliSessionsSyncModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliSessionsSyncModelTests.swift; sourceTree = "<group>"; };
 		C03900000000000000000010 /* APIEndpointContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpointContractTests.swift; sourceTree = "<group>"; };
 		C03900000000000000000011 /* CronManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CronManagementTests.swift; sourceTree = "<group>"; };
@@ -1192,6 +1195,7 @@
 		E1043000000000000000A002 /* HermesKanbanClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hermes/HermesKanbanClient.swift"; sourceTree = "<group>"; };
 		E1046000000000000000A002 /* HermesSessionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hermes/HermesSessionPage.swift"; sourceTree = "<group>"; };
 		E1048000000000000000A002 /* HermesSessionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hermes/HermesSessionActions.swift"; sourceTree = "<group>"; };
+		E1052000000000000000A002 /* HermesProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hermes/HermesProjects.swift"; sourceTree = "<group>"; };
 		C8240A000000000000000002 /* HermesConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hermes/HermesConnection.swift"; sourceTree = "<group>"; };
 		C8250A000000000000000002 /* HermesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hermes/HermesGateway.swift"; sourceTree = "<group>"; };
 		C8970A000000000000000002 /* HermesCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hermes/HermesCompatibility.swift"; sourceTree = "<group>"; };
@@ -1466,6 +1470,7 @@
 				A10900000000000000000012 /* SessionNavigationStateTests.swift */,
 				E1046000000000000000A006 /* HermesSessionListTests.swift */,
 				E1048000000000000000A004 /* HermesSessionActionsTests.swift */,
+				E1052000000000000000A004 /* HermesProjectsTests.swift */,
 				19C1150000000000000000A4 /* CliSessionsSyncModelTests.swift */,
 				C03900000000000000000010 /* APIEndpointContractTests.swift */,
 				C03900000000000000000011 /* CronManagementTests.swift */,
@@ -1623,6 +1628,7 @@
 				E1043000000000000000A002 /* HermesKanbanClient.swift */,
 				E1046000000000000000A002 /* HermesSessionPage.swift */,
 				E1048000000000000000A002 /* HermesSessionActions.swift */,
+				E1052000000000000000A002 /* HermesProjects.swift */,
 				C8240A000000000000000002 /* HermesConnection.swift */,
 				C8250A000000000000000002 /* HermesGateway.swift */,
 				C8970A000000000000000002 /* HermesCompatibility.swift */,
@@ -2434,6 +2440,7 @@
 				E1043000000000000000A001 /* HermesKanbanClient.swift in Sources */,
 				E1046000000000000000A001 /* HermesSessionPage.swift in Sources */,
 				E1048000000000000000A001 /* HermesSessionActions.swift in Sources */,
+				E1052000000000000000A001 /* HermesProjects.swift in Sources */,
 				C8240A000000000000000001 /* HermesConnection.swift in Sources */,
 				C8250A000000000000000001 /* HermesGateway.swift in Sources */,
 				C8970A000000000000000001 /* HermesCompatibility.swift in Sources */,
@@ -2877,6 +2884,7 @@
 				A10900000000000000000002 /* SessionNavigationStateTests.swift in Sources */,
 				E1046000000000000000A005 /* HermesSessionListTests.swift in Sources */,
 				E1048000000000000000A003 /* HermesSessionActionsTests.swift in Sources */,
+				E1052000000000000000A003 /* HermesProjectsTests.swift in Sources */,
 				19C1150000000000000000A3 /* CliSessionsSyncModelTests.swift in Sources */,
 				C03910000000000000000010 /* APIEndpointContractTests.swift in Sources */,
 				C03910000000000000000011 /* CronManagementTests.swift in Sources */,
