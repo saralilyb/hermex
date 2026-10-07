@@ -70,7 +70,7 @@ import XCTest
             XCTAssertFalse(taken, "\(reply)")
             XCTAssertEqual(chat.requests.onScreen?.requestID, "q-1", "card kept for \(reply)")
             XCTAssertEqual(chat.requests.errorMessage,
-                           "Answer outcome unknown. Check this bot in Desktop before answering again.", "\(reply)")
+                           "Answer outcome unknown. Check Hermes Desktop before answering again.", "\(reply)")
             XCTAssertEqual(chat.writes("approval.respond").count, 1, "never resent for \(reply)")
             XCTAssertTrue(chat.requests.mayAnswer, "a deliberate second tap stays possible")
             // The host settling it elsewhere still retires the card.
@@ -78,6 +78,22 @@ import XCTest
                                                     "reason": .string("resolved")]))
             XCTAssertNil(chat.requests.onScreen, "reconciled by the host's cancel for \(reply)")
         }
+    }
+
+    /// The uncertain warning belongs to its request: once the host retires that card, the next
+    /// approval shows no warning about an answer nobody gave it.
+    func testTheUncertainWarningLeavesWithItsRequestAndNeverReachesTheNextCard() async throws {
+        let chat = await openChat()
+        chat.host.always("approval.respond", .init(result: .object([:])))
+        chat.receive(approvalRequest(id: "srq-a1", requestID: "q-1"))
+        _ = await chat.requests.respond(try action(chat), choice: .once)
+        XCTAssertNotNil(chat.requests.errorMessage)
+        chat.receive(event(1, "request.cancel", ["id": .string("srq-a1"), "method": .string("approval"),
+                                                "reason": .string("resolved")]))
+        XCTAssertNil(chat.requests.errorMessage, "the warning left with its card")
+        chat.receive(approvalRequest(id: "srq-a2", requestID: "q-2"))
+        XCTAssertEqual(chat.requests.onScreen?.requestID, "q-2")
+        XCTAssertNil(chat.requests.errorMessage, "a fresh card carries no warning")
     }
 
     /// Skip all only counts a confirmed release; an uncertain one keeps the card.
