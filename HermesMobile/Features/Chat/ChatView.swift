@@ -2514,6 +2514,15 @@ struct ChatView: View {
                     submittedDraftRevision: submittedDraftRevision
                 )
             }
+        case .replacedHermesSession(let chat):
+            // The command leaves this chat's draft first; anything else in it stays here.
+            if consumesDraft {
+                reconcileConsumedDraft(
+                    ComposerDraftContent(text: submittedDraft, quotes: submittedQuotes),
+                    submittedDraftRevision: submittedDraftRevision
+                )
+            }
+            if let onReplaceHermesSession { onReplaceHermesSession(chat) } else { pushedHermesSession = chat }
         case .prefill(let text):
             // Unless the user typed on meanwhile: their edit wins.
             if draftRevision == submittedDraftRevision {
@@ -3880,7 +3889,7 @@ private enum PastedFileError: LocalizedError {
 private extension SlashCommandExecutionResult {
     var isSuccessfulSubmission: Bool {
         switch self {
-        case .executed, .openedSession, .openedHermesSession:
+        case .executed, .openedSession, .openedHermesSession, .replacedHermesSession:
             true
         case .sendAsMessage, .unsupported, .needsSubArg, .notDelivered, .prefill:
             false
