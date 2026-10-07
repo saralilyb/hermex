@@ -175,10 +175,19 @@ enum BotConnectionAdvice {
     /// without an offset, else one transcript page from `offset` (#1047). Nil when the host has
     /// no such session (404).
     func sessionMessages(_ key: String, profile: String, offset: Int?) async throws -> [BotJSON]?
-    /// One page of `profile`'s sessions for the Sessions list (`HermesREST.sessionList`, #1046).
-    func sessionPage(profile: String, offset: Int) async throws -> HermesSessionPage
-    /// Sets a session's read mark on the host (`HermesREST.updateSession`, #1046).
-    func setSessionUnread(_ unread: Bool, key: String, profile: String) async throws
+    /// One page of `profile`'s sessions for the Sessions list, or with `archived` for the
+    /// Archived screen (`HermesREST.sessionList`, #1046, #1048).
+    func sessionPage(profile: String, offset: Int, archived: Bool) async throws -> HermesSessionPage
+    /// Writes one change to a session (`HermesREST.updateSession`, #1046, #1048) and returns the
+    /// title the host keeps. A change the host refuses with its reason, such as a title already
+    /// in use, throws `HermesSessionRefusal`.
+    @discardableResult
+    func updateSession(_ change: HermesSessionChange, key: String, profile: String) async throws -> String?
+    /// The session's row and messages as the host exports them (`HermesREST.sessionExport`, #1048).
+    func exportSession(key: String, profile: String) async throws -> Data
+    /// The runtimes this phone's screens attached on the connection (`session.resume`) and have
+    /// not closed, so a delete can tell its own from another app's (#1048).
+    var attachedRuntimes: Set<String> { get }
     /// Ends this screen's calls, uploads and downloads; the shared socket stays for others.
     func close()
 }
@@ -213,13 +222,19 @@ extension BotTransport {
         try await sessionMessages(key, profile: profile, offset: nil)
     }
 
-    func sessionPage(profile: String, offset: Int) async throws -> HermesSessionPage {
+    func sessionPage(profile: String, offset: Int, archived: Bool) async throws -> HermesSessionPage {
         throw BotFailure.unsupported
     }
 
-    func setSessionUnread(_ unread: Bool, key: String, profile: String) async throws {
+    func updateSession(_ change: HermesSessionChange, key: String, profile: String) async throws -> String? {
         throw BotFailure.unsupported
     }
+
+    func exportSession(key: String, profile: String) async throws -> Data {
+        throw BotFailure.unsupported
+    }
+
+    var attachedRuntimes: Set<String> { [] }
 
     func call(_ call: HermesCall) async throws -> BotJSON {
         try await self.call(call, validateDispatch: nil)
